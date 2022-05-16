@@ -20,12 +20,14 @@ export class ApiComponent implements OnInit {
   }
 
   public getList(results: any) {
+    let index = 0;
     this.listFilms = results.map(
       (item: {
         episode_id: number,
         title: string,
         release_date: string,
       }) => ({
+        id: index++,
         checked: false,
         episode_id: item.episode_id,
         title: item.title,
@@ -35,28 +37,25 @@ export class ApiComponent implements OnInit {
       }));
   }
 
-  public publicList() {
-    let test : string = '';
-    this.listFilms.forEach(elem => (
-      test += '<li>' + this.getCheckbox(elem.checked) + elem.episode_id + ': ' + elem.title + '</span> ' + '<span>' + elem.release_date
-        + '</span>' + '<button [class]="' + this.getButtonView(elem.viewed) + elem.rate + '</li>'));
-    console.log('test', test);
-    return test;
-  }
-
-  public getCheckbox(checked: boolean): string {
-    if (checked = false) {
-      return '<input type="checkbox" checked><span>Star Wars. Episode ';
-    } else {
-      return '<input type="checkbox"><span>Star Wars. Episode ';
-    }
-  }
-
   public getButtonView(viewed: boolean): string {
-    if (viewed = true) {
-      return '"button_viw_off" (click)="buttonViewToggle"></button>';
+    if (viewed === true) {
+      return 'button_view_off';
     } else {
-      return '"button_viw_on" (click)="buttonViewToggle"></button>';
+      return 'button_view_on';
     }
   }
+
+  public buttonViewToggle(id: number) {
+    console.log('SMOTRI', !this.listFilms[id].viewed);
+    this.listFilms[id].viewed = !this.listFilms[id].viewed;
+    console.log('получившийся список', this.listFilms);
+  }
+
+  public checkboxToggle(id: number) {
+    this.listFilms[id].checked=!this.listFilms[id].checked;
+    console.log('получившийся список', this.listFilms);
+  }
+
+  public buttonRateClick()
+  {}
 }

@@ -16,19 +16,72 @@
 
 .listItem {
   display: grid;
-  grid-template-columns: 550px 150px 80px;
+  grid-template-columns: 550px 100px 60px 50px;
+  height: 50px;
+  align-items: center;
+}
+.listItem>label>span{
+  text-decoration: underline 2px;
 }
 
 .button_view_off {
-  background: #23292E url(src/assets/images/banner/view.svg) no-repeat center;
+  background: hsl(207deg 10% 28%) url(src/assets/images/banner/view.svg) no-repeat center;
   width: 36px;
   height: 36px;
   border-radius: 5px;
 }
 
-button_view_on {
+.button_view_on {
   background: #28a396 url(src/assets/images/banner/view.svg) no-repeat center;
   width: 36px;
   height: 36px;
   border-radius: 5px;
+}
+
+.check__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.checkbox{
+  position: absolute;
+  left: 95px;
+  background: bottom;
+  border-color: rgba(255, 255, 255, 0.6);
+  height: 18px;
+  width: 18px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.check__input:checked + .checkbox{
+  background: url('src/assets/images/userList/api/checkbox.svg');
+  border: none;
+}
+
+.button_rate {
+  background: hsl(207deg 10% 28%);
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  width: 102px;
+  height: 36px;
+}
+
+.button_rate_click {
+  background: #28A396;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  width: 102px;
+  height: 36px;
 }

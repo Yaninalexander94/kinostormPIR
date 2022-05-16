@@ -1,23 +1,38 @@
-
-<!--  <pre> {{ filmItem | json }} </pre>-->
-<!--  <pre> {{ films | json }} </pre>-->
-<!--  <span> {{ film[3].title }}</span>-->
-<!--  <span> {{ film[3].episode_id }}</span>-->
-<!--  <pre> {{ this.listFilms | json }}</pre>-->
-<!--&lt;!&ndash;  <script src="api.script.js"></script>&ndash;&gt;-->
-<!--  <div id="insertStyle">-->
-<!--&lt;!&ndash;  <ul style="display: grid;&ndash;&gt;-->
-<!--&lt;!&ndash;  grid-template-rows: repeat(5, 50px);" id="position">&ndash;&gt;-->
-<!--&lt;!&ndash;  </ul>&ndash;&gt;-->
-<!--  </div>-->
 <div>
-<!--  <pre> {{ this.listFilms | json }}</pre>-->
-  <ul
-    class="list"
-    [innerHTML]="publicList()"
-  >
+  <ul class="list">
+    <li
+      class="listItem"
+      *ngFor="let item of listFilms"
+    >
+      <label>
+        <input
+          class="check__input"
+          type="checkbox"
+          (checked)=item.checked
+          (click)="checkboxToggle(item.id)"
+        >
+        <div class="checkbox"></div>
+        <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
+      </label>
+      <span>{{ item.release_date }}</span>
+      <button
+        [class]="this.getButtonView(item.viewed)"
+        onclick="this.className = (this.className == 'button_view_off' ? 'button_view_on' : 'button_view_off')"
+        (click)="this.buttonViewToggle(item.id)"
+      >
+      </button>
+      <button
+        class="button_rate"
+        onclick="this.className = (this.className == 'button_rate' ? 'button_rate_click' : 'button_rate')"
+(click)="buttonRateClick()"
+      >
+        <img
+          src="./assets/images/banner/star.png"
+          alt="star"
+        >
+        Оценить
+      </button>
+    </li>
   </ul>
-<!--  <input type="checkbox" checked>-->
-<!--  [innerHTML]="publicList()"-->
 </div>
 
