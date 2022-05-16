@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Arimo);
+html {
+  box-sizing: border-box;
+  background-color: #000000 !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 1060px;
+  min-height: 100vh;
+  margin: 0px auto;
+  background-color: #23292E;
+  color: #D6D2CF;
+  font-family: 'Arimo';
+  font-style: normal;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body li {
+  list-style-type: none;
+}
+
+body ul {
+  display: flex;
+}
+
+h2 {
+  color: #8FD4C0;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+button {
+  border-style: none;
+}

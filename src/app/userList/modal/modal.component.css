@@ -1,0 +1,20 @@
+.modal{
+  background: #191E23;
+  position: absolute;
+  left: 760px;
+  /*bottom: 240px;*/
+  top: -50px;
+  transform: translate(-50%, 0);
+  box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 50%);
+}
+
+.modal ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 170px;
+  width: 238px;
+  padding: 25px 54px;
+  margin: 0;
+  cursor: pointer;
+}

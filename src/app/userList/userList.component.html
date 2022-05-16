@@ -1,0 +1,134 @@
+<section class="listFilms">
+  <div>
+    <h2>Буду смотреть</h2>
+    <button
+      (click)="modalOpenToggle()"
+      class="listFilms__button_settings"
+    >
+    </button>
+  </div>
+<!--  <div>-->
+<!--    <ul>-->
+<!--      <li class="listFilms__grid">-->
+<!--        <input type="checkbox">-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод V: Империя наносит ответный удар-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li-->
+<!--        class="listFilms__grid"-->
+<!--        checked-->
+<!--      >-->
+<!--        <input type="checkbox">-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод III: Месть ситхов-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li class="listFilms__grid">-->
+<!--        <input-->
+<!--          type="checkbox"-->
+<!--          checked-->
+<!--        >-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод VI: Возвращение джедая-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li class="listFilms__grid">-->
+<!--        <input type="checkbox">-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод IV: Новая надежда-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li class="listFilms__grid">-->
+<!--        <input-->
+<!--          type="checkbox"-->
+<!--          checked-->
+<!--        >-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод II: Атака клонов-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li class="listFilms__grid">-->
+<!--        <input type="checkbox">-->
+<!--        <span>-->
+<!--                        Звёздные войны. Эпизод I: Скрытая угроза-->
+<!--                    </span>-->
+<!--        <span>-->
+<!--                        2002-05-16-->
+<!--                    </span>-->
+<!--        <button class="banner__button_view"></button>-->
+<!--        <button class="banner__button_rate">-->
+<!--          <img-->
+<!--            src="./assets/images/banner/star.png"-->
+<!--            alt="star"-->
+<!--          >-->
+<!--          Оценить-->
+<!--        </button>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+  <app-modal
+    class="modal_block"
+    *ngIf="modalOpen"
+    (close)="modalOpen = false"
+  >
+  </app-modal>
+
+  <api-app>
+  </api-app>
+</section>

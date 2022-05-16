@@ -1,10 +1,22 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-nav',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'PIR';
+  // title = 'PIR';
+  userList: boolean = false;
+  mainHTML: boolean = true;
+
+  openUserList() {
+    this.userList = true;
+    this.mainHTML = false;
+  }
+
+  openMainHTML(){
+    this.userList = false;
+    this.mainHTML = true;
+  }
 }

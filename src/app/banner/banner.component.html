@@ -1,0 +1,55 @@
+<section class="banner">
+  <div>
+    <h1>Звёздные войны. Эпизод IV: Новая надежда</h1>
+    <img
+      src="./assets/images//banner/IMDb.svg"
+      alt="IMDb"
+    >
+  </div>
+  <div>
+    <!--    <a href="#">Cмотреть от 99 Р</a>-->
+    <button
+      [class]="buttonWatch"
+      (click)="buttonWatchClick()"
+    >Cмотреть от 99 Р
+    </button>
+    <div class="banner__buttons">
+      <button
+        [class]="buttonFavorites"
+        (click)="buttonFavoritesToggle()"
+      ></button>
+      <button
+        [class]="buttonView"
+        (click)="buttonViewToggle()"
+      ></button>
+      <button
+        [class]="buttonRate"
+        (click)="buttonRateClick()"
+      >
+        <img
+          src="./assets/images/banner/star.png"
+          alt="star"
+        >
+        Оценить
+      </button>
+    </div>
+  </div>
+  <div>
+    <div>
+      <span>Star Wars. Episode IV: A New Hope</span>
+      <span>1977, США, 2:30</span>
+    </div>
+    <img
+      src="./assets/images/banner/rating.svg"
+      alt="rating"
+    >
+  </div>
+  <div>
+    <ul>
+      <li>Фантастика</li>
+      <li>Боевик</li>
+      <li>Фэнтази</li>
+      <li>Приключения</li>
+    </ul>
+  </div>
+</section>

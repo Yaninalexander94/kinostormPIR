@@ -1,0 +1,52 @@
+.listFilms h2 {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  text-transform: inherit;
+}
+
+.listFilms {
+  padding: 0px 90px;
+}
+
+.listFilms>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 52px;
+}
+
+.listFilms__button_settings {
+  background: url(src/assets/images/userList/settings.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.listFilms ul {
+  display: grid;
+  grid-template-rows: repeat(5, 50px);
+}
+
+.listFilms__grid {
+  display: grid;
+  grid-template-columns: 50px 570px 120px 45px 110px;
+  align-items: center;
+}
+
+.listFilms input {
+  width: 24px;
+  height: 24px;
+}
+
+.listFilms span {
+  border-bottom: 2px solid currentColor;
+}
+
+.modal_block{
+  position: absolute;
+  /*width: 100%;*/
+  /*height: 100%;*/
+}
