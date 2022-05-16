@@ -59,9 +59,4 @@ export class ApiComponent implements OnInit {
       return '"button_viw_on" (click)="buttonViewToggle"></button>';
     }
   }
-
-
-  // public buttonViewToggle():string {
-  //
-  // }
 }
