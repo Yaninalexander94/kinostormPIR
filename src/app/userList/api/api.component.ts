@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 
 @Component({
   selector: 'api-app',
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css'],
 })
+@Injectable()
 export class ApiComponent implements OnInit {
   public listFilms: any[] = [];
+  public filterviewed: boolean = true;
+  public filternotviewed: boolean = true;
+
+
 
 
   public ngOnInit(): void {
@@ -61,5 +66,21 @@ export class ApiComponent implements OnInit {
       this.listFilms[id].rating++;
     else this.listFilms[id].rating = 0;
     console.log('Изменившийся элемент', this.listFilms[id]);
+  }
+
+  public filterViewedToggle(){
+    this.filterviewed=!this.filterviewed;
+    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+
+  }
+
+  public filterNotViewedToggle(){
+    this.filternotviewed=!this.filternotviewed;
+    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+  }
+  public filterReset(){
+    this.filterviewed=true;
+    this.filternotviewed=true;
+    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
   }
 }

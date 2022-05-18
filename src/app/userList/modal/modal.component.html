@@ -1,9 +1,12 @@
 <div>
   <div class="modal" (click)="close.emit()">
   <ul>
-    <li>Все фильмы</li>
-    <li>Просмотренные</li>
-    <li>Непросмотренные</li>
+    <li
+    (click)="resetFilter()">Все фильмы</li>
+    <li
+    (click)="viewedFilter()">Просмотренные</li>
+    <li
+      (click)="notViewedFilter()">Непросмотренные</li>
   </ul>
   </div>
 </div>

@@ -4,35 +4,50 @@
       class="listItem"
       *ngFor="let item of listFilms"
     >
-      <label>
-        <input
-          class="check__input"
-          type="checkbox"
-          (checked)=item.checked
-          (click)="checkboxToggle(item.id)"
+      <div *ngIf="((item.viewed==false)||(this.filterviewed==true))&&((item.viewed==true)||(this.filternotviewed==true))">
+        <label>
+          <input
+            class="check__input"
+            type="checkbox"
+            (checked)=item.checked
+            (click)="checkboxToggle(item.id)"
+          >
+          <div class="checkbox"></div>
+        </label>
+        <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
+        <span>{{ item.release_date }}</span>
+        <button
+          [class]="this.getButtonView(item.viewed)"
+          onclick="this.className = (this.className == 'button_view_off' ? 'button_view_on' : 'button_view_off')"
+          (click)="this.buttonViewToggle(item.id)"
         >
-        <div class="checkbox"></div>
-      </label>
-      <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
-      <span>{{ item.release_date }}</span>
-      <button
-        [class]="this.getButtonView(item.viewed)"
-        onclick="this.className = (this.className == 'button_view_off' ? 'button_view_on' : 'button_view_off')"
-        (click)="this.buttonViewToggle(item.id)"
-      >
-      </button>
-      <button
-        class="button_rate"
-        onclick="if(this.className == 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 150);} else this.className='button_rate'"
-        (click)="buttonRateClick(item.id)"
-      >
-        <img
-          src="./assets/images/banner/star.png"
-          alt="star"
+        </button>
+        <button
+          class="button_rate"
+          onclick="if(this.className == 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 150);} else this.className='button_rate'"
+          (click)="buttonRateClick(item.id)"
+          title="Press to add rating. Now rating is {{ item.rating }}"
         >
-        Оценить
-      </button>
+          <img
+            src="./assets/images/banner/star.png"
+            alt="star"
+          >
+          Оценить
+        </button>
+      </div>
     </li>
   </ul>
+  <button
+  (click)="filterViewedToggle()">
+    Просмотренные
+  </button>
+  <button
+    (click)="filterNotViewedToggle()">
+    Не просмотренные
+  </button>
+  <button
+    (click)="filterReset()">
+    Все фильмы
+  </button>
 </div>
 

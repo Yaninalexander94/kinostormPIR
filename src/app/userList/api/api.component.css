@@ -14,13 +14,13 @@
   flex-direction: column;
 }
 
-.listItem {
+.listItem>div {
   display: grid;
   grid-template-columns:35px 550px 100px 60px 50px;
   height: 50px;
   align-items: center;
 }
-.listItem>span{
+.listItem>div>span{
   text-decoration: underline 2px;
   cursor: pointer;
 }
