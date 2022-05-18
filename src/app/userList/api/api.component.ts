@@ -33,7 +33,7 @@ export class ApiComponent implements OnInit {
         title: item.title,
         release_date: item.release_date,
         viewed: false,
-        rate: 0,
+        rating: 0,
       }));
   }
 
@@ -45,17 +45,21 @@ export class ApiComponent implements OnInit {
     }
   }
 
-  public buttonViewToggle(id: number) {
-    console.log('SMOTRI', !this.listFilms[id].viewed);
+  public buttonViewToggle(id: number): void {
     this.listFilms[id].viewed = !this.listFilms[id].viewed;
-    console.log('получившийся список', this.listFilms);
+    console.log('Изменившийся элемент', this.listFilms[id]);
   }
 
-  public checkboxToggle(id: number) {
+  public checkboxToggle(id: number): void {
     this.listFilms[id].checked=!this.listFilms[id].checked;
-    console.log('получившийся список', this.listFilms);
+    console.log('Изменившийся элемент', this.listFilms[id]);
   }
 
-  public buttonRateClick()
-  {}
+  public buttonRateClick(id: number): void
+  {
+    if(this.listFilms[id].rating<5)
+      this.listFilms[id].rating++;
+    else this.listFilms[id].rating = 0;
+    console.log('Изменившийся элемент', this.listFilms[id]);
+  }
 }

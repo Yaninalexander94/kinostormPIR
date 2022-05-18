@@ -43,4 +43,5 @@ h2 {
 
 button {
   border-style: none;
+  cursor: pointer;
 }

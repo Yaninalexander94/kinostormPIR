@@ -12,8 +12,8 @@
           (click)="checkboxToggle(item.id)"
         >
         <div class="checkbox"></div>
-        <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
       </label>
+      <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
       <span>{{ item.release_date }}</span>
       <button
         [class]="this.getButtonView(item.viewed)"
@@ -23,8 +23,8 @@
       </button>
       <button
         class="button_rate"
-        onclick="this.className = (this.className == 'button_rate' ? 'button_rate_click' : 'button_rate')"
-(click)="buttonRateClick()"
+        onclick="if(this.className == 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 150);} else this.className='button_rate'"
+        (click)="buttonRateClick(item.id)"
       >
         <img
           src="./assets/images/banner/star.png"
