@@ -1,9 +1,8 @@
 .modal{
   background: #191E23;
   position: absolute;
-  left: 760px;
-  /*bottom: 240px;*/
-  top: -50px;
+  left: 925px;
+  top: 195px;
   transform: translate(-50%, 0);
   box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 50%);
 }

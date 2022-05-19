@@ -6,18 +6,39 @@ import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@ang
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css'],
 })
-@Injectable()
+// @Injectable()
 export class ApiComponent implements OnInit {
   public listFilms: any[] = [];
   public filterviewed: boolean = true;
   public filternotviewed: boolean = true;
 
 
-  @Output() close = new EventEmitter<void>();
+  onChangedFilterReset(increased: any) {
+    if (increased == true) {
+      this.filterviewed = true;
+      this.filternotviewed = true;
+    }
+  }
+
+  onChangedFilterViewed(increased: any) {
+    if (increased == true) {
+      this.filterviewed = true;
+      this.filternotviewed = false;
+    }
+  }
+
+  onChangedFilterNotViewed(increased: any) {
+    if (increased == true) {
+      this.filterviewed = false;
+      this.filternotviewed = true;
+    }
+  }
 
 
   public ngOnInit(): void {
+
     this.getApi();
+
   }
 
   public getApi(): void {
@@ -53,8 +74,13 @@ export class ApiComponent implements OnInit {
   }
 
   public buttonViewToggle(id: number): void {
-    this.listFilms[id].viewed = !this.listFilms[id].viewed;
-    console.log('Изменившийся элемент', this.listFilms[id]);
+    let length = this.listFilms.length;
+    for (let i = 0; i < length; i++) {
+      if (this.listFilms[i].id === id) {
+        this.listFilms[i].viewed = !this.listFilms[i].viewed;
+        break;
+      }
+    }
   }
 
   public checkboxToggle(id: number): void {
@@ -68,29 +94,22 @@ export class ApiComponent implements OnInit {
   }
 
   public buttonRateClick(id: number): void {
-    if (this.listFilms[id].rating < 5) {
-      this.listFilms[id].rating++;
-    } else {
-      this.listFilms[id].rating = 0;
+    let length = this.listFilms.length;
+    for (let i = 0; i < length; i++) {
+      if (this.listFilms[i].id === id) {
+        if (this.listFilms[i].rating < 5) {
+          this.listFilms[i].rating++;
+        } else {
+          this.listFilms[i].rating = 0;
+        }
+        break;
+      }
     }
-    console.log('Изменившийся элемент', this.listFilms[id].id, 'rating = ', this.listFilms[id].rating);
   }
 
-  public filterViewedToggle() {
-    this.filterviewed = !this.filterviewed;
-    console.log('filterViewedToggle - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
 
-  }
-
-  public filterNotViewedToggle() {
-    this.filternotviewed = !this.filternotviewed;
-    console.log('filterNotViewedToggle - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
-  }
-
-  public filterReset() {
-    this.filterviewed = true;
-    this.filternotviewed = true;
-    console.log('filterReset - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+  public filterList(viewed: boolean): boolean {
+    return ((viewed == false) || (this.filternotviewed == true)) && ((viewed == true) || (this.filterviewed == true));
   }
 
   public deleteButton(): boolean {

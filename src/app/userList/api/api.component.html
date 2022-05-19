@@ -1,5 +1,17 @@
 <div>
+  <app-modal
+    (onChangedFilterReset)="onChangedFilterReset($event)"
+    (onChangedFilterViewed)="onChangedFilterViewed($event)"
+    (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
+    class="modal_block">
+
+<!--    *ngIf="modalOpen"-->
+<!--    (close)="modalOpen = false"-->
+<!--  >-->
+
+  </app-modal>
   <div>
+
     <button
       class="button_delete"
       *ngIf="deleteButton()"
@@ -13,7 +25,9 @@
       class="listItem"
       *ngFor="let item of listFilms"
     >
-      <div *ngIf="((item.viewed==false)||(this.filterviewed==true))&&((item.viewed==true)||(this.filternotviewed==true))">
+      <div
+      *ngIf="filterList(item.viewed)"
+      >
         <label>
           <input
             class="check__input"
@@ -46,17 +60,17 @@
       </div>
     </li>
   </ul>
-  <button
-  (click)="filterViewedToggle()">
-    Просмотренные
-  </button>
-  <button
-    (click)="filterNotViewedToggle()">
-    Не просмотренные
-  </button>
-  <button
-    (click)="filterReset()">
-    Все фильмы
-  </button>
+<!--  <button-->
+<!--  (click)="filterViewedToggle()">-->
+<!--    Просмотренные-->
+<!--  </button>-->
+<!--  <button-->
+<!--    (click)="filterNotViewedToggle()">-->
+<!--    Не просмотренные-->
+<!--  </button>-->
+<!--  <button-->
+<!--    (click)="filterReset()">-->
+<!--    Все фильмы-->
+<!--  </button>-->
 </div>
 
