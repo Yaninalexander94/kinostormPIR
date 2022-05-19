@@ -1,4 +1,13 @@
 <div>
+  <div>
+    <button
+      class="button_delete"
+      *ngIf="deleteButton()"
+      (click)="deleteItem()"
+    >
+      <img src="assets/images/userList/api/trashbin.svg">
+      удалить выбранное</button>
+  </div>
   <ul class="list">
     <li
       class="listItem"

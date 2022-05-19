@@ -26,7 +26,7 @@
 }
 
 .button_view_off {
-  background: hsl(207deg 10% 28%) url(src/assets/images/banner/view.svg) no-repeat center;
+  background: #23292E url(src/assets/images/banner/view.svg) no-repeat center;
   width: 36px;
   height: 36px;
   border-radius: 5px;
@@ -65,7 +65,7 @@
 }
 
 .button_rate {
-  background: hsl(207deg 10% 28%);
+  background: #23292E;
   border-radius: 5px;
   font-style: normal;
   font-weight: 700;
@@ -86,4 +86,26 @@
   color: #FFFFFF;
   width: 102px;
   height: 36px;
+}
+
+.button_delete{
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  background: #23292E;
+  border-radius: 5px;
+  letter-spacing: 0.15px;
+  color: #28A396;
+  position: absolute;
+  top: 220px;
+  width: 160px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_delete>img{
+  margin-right: 10px;
 }

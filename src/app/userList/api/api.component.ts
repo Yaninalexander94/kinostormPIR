@@ -1,4 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'api-app',
@@ -12,6 +13,7 @@ export class ApiComponent implements OnInit {
   public filternotviewed: boolean = true;
 
 
+  @Output() close = new EventEmitter<void>();
 
 
   public ngOnInit(): void {
@@ -56,31 +58,70 @@ export class ApiComponent implements OnInit {
   }
 
   public checkboxToggle(id: number): void {
-    this.listFilms[id].checked=!this.listFilms[id].checked;
-    console.log('Изменившийся элемент', this.listFilms[id]);
+    let length = this.listFilms.length;
+    for (let i = 0; i < length; i++) {
+      if (this.listFilms[i].id === id) {
+        this.listFilms[i].checked = !this.listFilms[i].checked;
+        break;
+      }
+    }
   }
 
-  public buttonRateClick(id: number): void
-  {
-    if(this.listFilms[id].rating<5)
+  public buttonRateClick(id: number): void {
+    if (this.listFilms[id].rating < 5) {
       this.listFilms[id].rating++;
-    else this.listFilms[id].rating = 0;
-    console.log('Изменившийся элемент', this.listFilms[id]);
+    } else {
+      this.listFilms[id].rating = 0;
+    }
+    console.log('Изменившийся элемент', this.listFilms[id].id, 'rating = ', this.listFilms[id].rating);
   }
 
-  public filterViewedToggle(){
-    this.filterviewed=!this.filterviewed;
-    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+  public filterViewedToggle() {
+    this.filterviewed = !this.filterviewed;
+    console.log('filterViewedToggle - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
 
   }
 
-  public filterNotViewedToggle(){
-    this.filternotviewed=!this.filternotviewed;
-    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+  public filterNotViewedToggle() {
+    this.filternotviewed = !this.filternotviewed;
+    console.log('filterNotViewedToggle - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
   }
-  public filterReset(){
-    this.filterviewed=true;
-    this.filternotviewed=true;
-    console.log('filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+
+  public filterReset() {
+    this.filterviewed = true;
+    this.filternotviewed = true;
+    console.log('filterReset - filterviewed', this.filterviewed, 'filternotviewed', this.filternotviewed);
+  }
+
+  public deleteButton(): boolean {
+    let isDeleteButtonOn = false;
+    let length = this.listFilms.length;
+    for (let i = 0; i < length; i++) {
+      if (this.listFilms[i].checked) {
+        isDeleteButtonOn = true;
+        break;
+      }
+    }
+    return isDeleteButtonOn;
+  }
+
+  public deleteItem() {
+    let length = this.listFilms.length;
+
+    // while (!isAllDeleted) {
+    //   let i = 0;
+    //   if (this.listFilms[i].checked) {
+    //     this.listFilms.splice(i, 1);
+    //   }
+    //   i++;
+    // }
+    for (let i = 0; i < length; i++) {
+      if (this.listFilms[i].checked) {
+        this.listFilms.splice(i, 1);
+        length = this.listFilms.length;
+        i--;
+      }
+    }
+    console.log('Список фильмов после удаления - ', this.listFilms);
   }
 }

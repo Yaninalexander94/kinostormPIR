@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userList.component.css', '../banner/banner.component.css'],
 })
 export class UserListComponent {
-  public modalOpen = false;
+  public  modalOpen = false;
 
   public modalOpenToggle() {
     this.modalOpen = !this.modalOpen;
