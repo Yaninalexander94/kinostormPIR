@@ -3,18 +3,24 @@
 >
   <ul>
     <li
+      class="modal_item"
       (click)="setFilterReset()"
     >
+      <img *ngIf="(filter1==true)&&(filter2==true)" src="assets/images/userList/modal/checked.svg">
       Все фильмы
     </li>
     <li
-      (click)="setFilterViewed()"
+      class="modal_item"
+      (click)="setFilterViewed();"
     >
+      <img *ngIf="(filter1==true)&&(filter2==false)" src="assets/images/userList/modal/checked.svg">
       Просмотренные
     </li>
     <li
+      class="modal_item"
       (click)="setFilterNotViewed()"
     >
+      <img *ngIf="(filter1==false)&&(filter2==true)" src="assets/images/userList/modal/checked.svg">
       Непросмотренные
     </li>
   </ul>

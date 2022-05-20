@@ -1,26 +1,17 @@
-/*.list{*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
-
-.test {
-  display: grid;
-  grid-template-columns: 50px 570px 120px 45px 110px;
-  align-items: center;
-}
-
 .list {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  margin: 0;
 }
 
 .listItem>div {
   display: grid;
-  grid-template-columns:35px 550px 100px 60px 50px;
+  grid-template-columns:35px 590px 100px 45px 100px;
   height: 50px;
   align-items: center;
 }
-.listItem>div>span{
+.listItem_title{
   text-decoration: underline 2px;
   cursor: pointer;
 }
@@ -108,4 +99,13 @@
 }
 .button_delete>img{
   margin-right: 10px;
+}
+
+.button_settings{
+  background: url(src/assets/images/userList/settings.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 865px;
+  bottom: 65px;
 }

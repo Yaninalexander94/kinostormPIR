@@ -1,13 +1,22 @@
 <div>
+  <button
+    (click)="modalOpenToggle()"
+    class="button_settings"
+  >
+  </button>
   <app-modal
     (onChangedFilterReset)="onChangedFilterReset($event)"
     (onChangedFilterViewed)="onChangedFilterViewed($event)"
     (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
-    class="modal_block">
+    [filter1]="filterviewed"
+    [filter2]="filternotviewed"
+    *ngIf="modalOpen"
+    class="modal_block"
+  >
 
-<!--    *ngIf="modalOpen"-->
-<!--    (close)="modalOpen = false"-->
-<!--  >-->
+    <!--    *ngIf="modalOpen"-->
+    <!--    (close)="modalOpen = false"-->
+    <!--  >-->
 
   </app-modal>
   <div>
@@ -18,7 +27,8 @@
       (click)="deleteItem()"
     >
       <img src="assets/images/userList/api/trashbin.svg">
-      удалить выбранное</button>
+      удалить выбранное
+    </button>
   </div>
   <ul class="list">
     <li
@@ -26,7 +36,7 @@
       *ngFor="let item of listFilms"
     >
       <div
-      *ngIf="filterList(item.viewed)"
+        *ngIf="filterList(item.viewed)"
       >
         <label>
           <input
@@ -37,7 +47,7 @@
           >
           <div class="checkbox"></div>
         </label>
-        <span>Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
+        <span class="listItem_title">Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
         <span>{{ item.release_date }}</span>
         <button
           [class]="this.getButtonView(item.viewed)"
@@ -60,17 +70,17 @@
       </div>
     </li>
   </ul>
-<!--  <button-->
-<!--  (click)="filterViewedToggle()">-->
-<!--    Просмотренные-->
-<!--  </button>-->
-<!--  <button-->
-<!--    (click)="filterNotViewedToggle()">-->
-<!--    Не просмотренные-->
-<!--  </button>-->
-<!--  <button-->
-<!--    (click)="filterReset()">-->
-<!--    Все фильмы-->
-<!--  </button>-->
+  <!--  <button-->
+  <!--  (click)="filterViewedToggle()">-->
+  <!--    Просмотренные-->
+  <!--  </button>-->
+  <!--  <button-->
+  <!--    (click)="filterNotViewedToggle()">-->
+  <!--    Не просмотренные-->
+  <!--  </button>-->
+  <!--  <button-->
+  <!--    (click)="filterReset()">-->
+  <!--    Все фильмы-->
+  <!--  </button>-->
 </div>
 

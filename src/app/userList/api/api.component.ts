@@ -1,22 +1,23 @@
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 
-
 @Component({
   selector: 'api-app',
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css'],
 })
-// @Injectable()
+
 export class ApiComponent implements OnInit {
   public listFilms: any[] = [];
   public filterviewed: boolean = true;
   public filternotviewed: boolean = true;
+  public modalOpen: boolean = false;
 
 
   onChangedFilterReset(increased: any) {
     if (increased == true) {
       this.filterviewed = true;
       this.filternotviewed = true;
+      this.modalOpenToggle();
     }
   }
 
@@ -24,6 +25,7 @@ export class ApiComponent implements OnInit {
     if (increased == true) {
       this.filterviewed = true;
       this.filternotviewed = false;
+      this.modalOpenToggle();
     }
   }
 
@@ -31,14 +33,13 @@ export class ApiComponent implements OnInit {
     if (increased == true) {
       this.filterviewed = false;
       this.filternotviewed = true;
+      this.modalOpenToggle();
     }
   }
 
 
   public ngOnInit(): void {
-
     this.getApi();
-
   }
 
   public getApi(): void {
@@ -107,7 +108,6 @@ export class ApiComponent implements OnInit {
     }
   }
 
-
   public filterList(viewed: boolean): boolean {
     return ((viewed == false) || (this.filternotviewed == true)) && ((viewed == true) || (this.filterviewed == true));
   }
@@ -126,14 +126,6 @@ export class ApiComponent implements OnInit {
 
   public deleteItem() {
     let length = this.listFilms.length;
-
-    // while (!isAllDeleted) {
-    //   let i = 0;
-    //   if (this.listFilms[i].checked) {
-    //     this.listFilms.splice(i, 1);
-    //   }
-    //   i++;
-    // }
     for (let i = 0; i < length; i++) {
       if (this.listFilms[i].checked) {
         this.listFilms.splice(i, 1);
@@ -141,6 +133,10 @@ export class ApiComponent implements OnInit {
         i--;
       }
     }
-    console.log('Список фильмов после удаления - ', this.listFilms);
+  }
+
+  public modalOpenToggle()
+  {
+    this.modalOpen=!this.modalOpen;
   }
 }

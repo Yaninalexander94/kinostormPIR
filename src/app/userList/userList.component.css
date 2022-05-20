@@ -18,12 +18,6 @@
   margin-top: 52px;
 }
 
-.listFilms__button_settings {
-  background: url(src/assets/images/userList/settings.svg) no-repeat center;
-  width: 24px;
-  height: 24px;
-  position: relative;
-}
 
 .listFilms ul {
   display: grid;
