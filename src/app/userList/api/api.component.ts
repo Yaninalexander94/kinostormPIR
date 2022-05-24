@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'api-app',
@@ -36,7 +37,6 @@ export class ApiComponent implements OnInit {
       this.modalOpenToggle();
     }
   }
-
 
   public ngOnInit(): void {
     this.getApi();

@@ -4,21 +4,6 @@
     class="button_settings"
   >
   </button>
-  <app-modal
-    (onChangedFilterReset)="onChangedFilterReset($event)"
-    (onChangedFilterViewed)="onChangedFilterViewed($event)"
-    (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
-    [filter1]="filterviewed"
-    [filter2]="filternotviewed"
-    *ngIf="modalOpen"
-    class="modal_block"
-  >
-
-    <!--    *ngIf="modalOpen"-->
-    <!--    (close)="modalOpen = false"-->
-    <!--  >-->
-
-  </app-modal>
   <div>
 
     <button
@@ -47,7 +32,21 @@
           >
           <div class="checkbox"></div>
         </label>
-        <span class="listItem_title">Star Wars. Episode {{ item.episode_id }}: {{ item.title }}</span>
+        <a
+          routerLink="/about-film"
+          [queryParams]="{
+          'title' : 'Star Wars. Episode ' + item.episode_id + ': ' + item.title ,
+          'viewed' : (item.viewed===true)?'banner__button_view_off':'banner__button_view_on',
+          'date': item.release_date,
+          'rating': item.rating,
+          'banner': item.id
+          }"
+        >
+          <span
+            class="listItem_title"
+          >Star Wars. Episode {{ item.episode_id }}: {{ item.title }}
+        </span>
+        </a>
         <span>{{ item.release_date }}</span>
         <button
           [class]="this.getButtonView(item.viewed)"
@@ -70,17 +69,15 @@
       </div>
     </li>
   </ul>
-  <!--  <button-->
-  <!--  (click)="filterViewedToggle()">-->
-  <!--    Просмотренные-->
-  <!--  </button>-->
-  <!--  <button-->
-  <!--    (click)="filterNotViewedToggle()">-->
-  <!--    Не просмотренные-->
-  <!--  </button>-->
-  <!--  <button-->
-  <!--    (click)="filterReset()">-->
-  <!--    Все фильмы-->
-  <!--  </button>-->
+  <app-modal
+    (onChangedFilterReset)="onChangedFilterReset($event)"
+    (onChangedFilterViewed)="onChangedFilterViewed($event)"
+    (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
+    [filter1]="filterviewed"
+    [filter2]="filternotviewed"
+    *ngIf="modalOpen"
+    class="modal_block"
+  >
+  </app-modal>
 </div>
 

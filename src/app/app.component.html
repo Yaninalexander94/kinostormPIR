@@ -1,11 +1,17 @@
+<!--<div *ngIf="mainHTML">-->
+
+<!--</div>-->
+<!--<div *ngIf="userList">-->
+<!--  <app-userList></app-userList>-->
+<!--</div>-->
 <header class="header">
-  <a href="#" (click)="openMainHTML()">
+  <a routerLink="film-list">
     <img src="./assets/images/nav/kinostormkonostorm.svg" alt="kinostorm_logo">
   </a>
   <nav class="header_nav">
     <ul class="header_nav__list">
       <li>
-        <a href="#" (click)="openMainHTML()">Каталог</a>
+        <a routerLink="about-film">Каталог</a>
       </li>
       <li>
         <a href="# ">Подборки</a>
@@ -14,7 +20,7 @@
         <a href="# ">Скоро на kinostorm</a>
       </li>
       <li>
-        <a href="#" (click)="openUserList()">Мой список</a>
+        <a routerLink="film-list">Мой список</a>
       </li>
     </ul>
   </nav>
@@ -23,11 +29,4 @@
     <a href="# "><img src="./assets/images/nav/user.svg" alt="user"></a>
   </div>
 </header>
-<div *ngIf="mainHTML">
-<app-banner></app-banner>
-<app-description></app-description>
-<app-charasters></app-charasters>
-</div>
-<div *ngIf="userList">
-  <app-userList></app-userList>
-</div>
+<router-outlet></router-outlet>

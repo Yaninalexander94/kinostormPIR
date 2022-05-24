@@ -1,22 +1,42 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { timeout } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css'],
+  selector: 'app-aboutFilm',
+  templateUrl: './aboutFilm.component.html',
+  styleUrls: ['./aboutFilm.component.css'],
 })
-export class BannerComponent {
-  filmTitle: string = '';
+export class AboutFilmComponent {
+  title: string = '';
+  viewed: string = '';
+  date: string = '';
+  rating: number = 0;
+  banner: number = 0;
+
+
+  private routeSubscription: Subscription;
+  private querySubscription: Subscription;
+
+  constructor(private route: ActivatedRoute) {
+
+    this.routeSubscription = route.params.subscribe(params => this.title = params['title']);
+    this.querySubscription = route.queryParams.subscribe(
+      (queryParam: any) => {
+        this.title = queryParam['title'];
+        this.viewed = queryParam['viewed'];
+        this.date = queryParam['date'];
+        this.rating = queryParam['rating'];
+        this.banner = queryParam['banner'];
+      },
+    );
+  }
+
+
   buttonTimeout = 150;
   buttonFavorites = 'banner__button_favorites_off';
   toggleFavorites = false;
 
-  constructor(private activateRoute: ActivatedRoute){
-
-    this.filmTitle = activateRoute.snapshot.params['filmTitle'];
-  }
 
   public buttonFavoritesToggle(): string {
     this.toggleFavorites = !this.toggleFavorites;
@@ -31,6 +51,16 @@ export class BannerComponent {
 
   buttonView = 'banner__button_view_off';
   toggleView = false;
+
+  public buttonViewStyle(viewed: boolean): string {
+    console.log('viewed',viewed);
+    if (viewed) {
+      return 'banner__button_view_on';
+    } else {
+      return 'banner__button_view_on';
+    }
+
+  }
 
   public buttonViewToggle(): string {
     this.toggleView = !this.toggleView;
