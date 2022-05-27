@@ -30,5 +30,4 @@ export class ModalComponent {
 
   @Input() filter1: boolean = false;
   @Input() filter2: boolean = false;
-
 }

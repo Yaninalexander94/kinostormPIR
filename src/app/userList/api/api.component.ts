@@ -12,6 +12,9 @@ export class ApiComponent implements OnInit {
   public filterviewed: boolean = true;
   public filternotviewed: boolean = true;
   public modalOpen: boolean = false;
+  public ratingOpen: boolean = false;
+  public ratingValue: number = 0;
+  public filmId: number = 0;
 
 
   onChangedFilterReset(increased: any) {
@@ -36,6 +39,11 @@ export class ApiComponent implements OnInit {
       this.filternotviewed = true;
       this.modalOpenToggle();
     }
+  }
+
+  onChangedRating(increased: any) {
+    this.ratingOpen = !this.ratingOpen;
+    this.listFilms[this.filmId].rating = increased;
   }
 
   public ngOnInit(): void {
@@ -94,22 +102,25 @@ export class ApiComponent implements OnInit {
     }
   }
 
-  public buttonRateClick(id: number): void {
+  public buttonRateClick(id: number, rating: number): void {
+    console.log('rating', rating);
     let length = this.listFilms.length;
     for (let i = 0; i < length; i++) {
       if (this.listFilms[i].id === id) {
-        if (this.listFilms[i].rating < 5) {
-          this.listFilms[i].rating++;
-        } else {
-          this.listFilms[i].rating = 0;
-        }
+        this.listFilms[i].rating = rating;
+        // if (this.listFilms[i].rating < 5) {
+        //   this.listFilms[i].rating++;
+        // } else {
+        //   this.listFilms[i].rating = 0;
+        // }
+        console.log(this.listFilms);
         break;
       }
     }
   }
 
   public filterList(viewed: boolean): boolean {
-    return ((viewed == false) || (this.filternotviewed == true)) && ((viewed == true) || (this.filterviewed == true));
+    return (!viewed || this.filternotviewed) && (viewed || this.filterviewed);
   }
 
   public deleteButton(): boolean {
@@ -135,8 +146,12 @@ export class ApiComponent implements OnInit {
     }
   }
 
-  public modalOpenToggle()
-  {
-    this.modalOpen=!this.modalOpen;
+  public modalOpenToggle(): void {
+    this.modalOpen = !this.modalOpen;
+  }
+
+  public ratingSet(id: number): void {
+    this.ratingOpen = !this.ratingOpen;
+    this.filmId = id;
   }
 }

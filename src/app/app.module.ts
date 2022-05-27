@@ -11,6 +11,7 @@ import { UserListComponent } from './userList/userList.component';
 import { ModalComponent } from './userList/modal/modal.component';
 import { ApiComponent } from './userList/api/api.component';
 import { AboutFilmComponent } from './aboutFilm/aboutFilm.component';
+import {RatingComponent} from './userList/rating/rating.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     ModalComponent,
     ApiComponent,
     AboutFilmComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

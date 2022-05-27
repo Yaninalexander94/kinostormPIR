@@ -1,0 +1,37 @@
+.modal_rating{
+  background:  #23292E;
+  border-radius: 5px;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  left: 640px;
+  bottom: 440px;
+  box-shadow: 0 0 0px 1000px rgb(0 0 0 / 50%);
+}
+.modal_rating ul, p {
+  margin: 0;
+}
+.modal_rating_list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px;
+  width: 140px;
+}
+
+.modal_rating_list>li{
+  width: 12px;
+  height: 12px;
+  background-image: url('src/assets/images/userList/rating/star_off.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.modal_rating_list>li:hover{
+  background-image: url('src/assets/images/userList/rating/star_on.svg');
+  background-repeat: no-repeat;
+}

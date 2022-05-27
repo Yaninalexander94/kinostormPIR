@@ -50,21 +50,27 @@
         <span>{{ item.release_date }}</span>
         <button
           [class]="this.getButtonView(item.viewed)"
-          onclick="this.className = (this.className == 'button_view_off' ? 'button_view_on' : 'button_view_off')"
+          onclick="this.className = (this.className === 'button_view_off' ? 'button_view_on' : 'button_view_off')"
           (click)="this.buttonViewToggle(item.id)"
         >
         </button>
         <button
           class="button_rate"
-          onclick="if(this.className == 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 150);} else this.className='button_rate'"
-          (click)="buttonRateClick(item.id)"
+          onclick="if(this.className === 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 500);} else this.className='button_rate'"
+          (click)="ratingSet(item.id)"
           title="Press to add rating. Now rating is {{ item.rating }}"
         >
-          <img
-            src="./assets/images/banner/star.png"
-            alt="star"
-          >
-          Оценить
+          <div
+          *ngIf="listFilms[item.id].rating===0;else ratingNotNull">
+            <img
+              src="./assets/images/banner/star.png"
+              alt="star"
+            >
+            Оценить
+          </div>
+          <ng-template #ratingNotNull>
+           {{ listFilms[item.id].rating }} stars
+          </ng-template>
         </button>
       </div>
     </li>
@@ -79,5 +85,10 @@
     class="modal_block"
   >
   </app-modal>
+  <rating-app
+    *ngIf="ratingOpen"
+    (onChangedRating)="onChangedRating($event)"
+  >
+  </rating-app>
 </div>
 
