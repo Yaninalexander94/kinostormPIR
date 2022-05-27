@@ -1,22 +1,21 @@
-/*.list{*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
-
-.test {
-  display: grid;
-  grid-template-columns: 50px 570px 120px 45px 110px;
-  align-items: center;
-}
-
 .list {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  margin: 0;
 }
-
-.listItem {
+a{
+  color: white;
+}
+.listItem>div {
   display: grid;
-  grid-template-columns: 550px 150px 80px;
+  grid-template-columns:35px 590px 100px 45px 100px;
+  height: 50px;
+  align-items: center;
+}
+.listItem_title{
+  text-decoration: underline 2px;
+  cursor: pointer;
 }
 
 .button_view_off {
@@ -26,9 +25,89 @@
   border-radius: 5px;
 }
 
-button_view_on {
+.button_view_on {
   background: #28a396 url(src/assets/images/banner/view.svg) no-repeat center;
   width: 36px;
   height: 36px;
   border-radius: 5px;
+}
+
+.check__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.checkbox{
+  /*position: absolute;*/
+  /*left: 95px;*/
+  background: bottom;
+  border-color: rgba(255, 255, 255, 0.6);
+  height: 18px;
+  width: 18px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.check__input:checked + .checkbox{
+  background: url('src/assets/images/userList/api/checkbox.svg');
+  border: none;
+}
+
+.button_rate {
+  background: #23292E;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  width: 102px;
+  height: 36px;
+}
+
+.button_rate_click {
+  background: #28A396;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  width: 102px;
+  height: 36px;
+}
+
+.button_delete{
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  background: #23292E;
+  border-radius: 5px;
+  letter-spacing: 0.15px;
+  color: #28A396;
+  position: absolute;
+  top: 220px;
+  width: 160px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_delete>img{
+  margin-right: 10px;
+}
+
+.button_settings{
+  background: url(src/assets/images/userList/settings.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 865px;
+  bottom: 65px;
 }

@@ -1,20 +1,33 @@
-.modal{
-  background: #191E23;
+.modal {
+  background: #191e23;
   position: absolute;
-  left: 760px;
-  /*bottom: 240px;*/
-  top: -50px;
+  left: 925px;
+  top: 195px;
   transform: translate(-50%, 0);
   box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 50%);
+  /*position: relative;*/
+  /*left: 770px;*/
+  /*bottom: 415px;*/
+  /*width: 240px;*/
 }
 
-.modal ul{
+.modal ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 170px;
   width: 238px;
-  padding: 25px 54px;
+  padding: 25px 55px;
   margin: 0;
   cursor: pointer;
+}
+
+.modal_item {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal_item>img {
+  position: absolute;
+  right: 200px;
 }

@@ -1,6 +1,6 @@
-<section class="banner">
+<section class="banner banner{{banner}}">
   <div>
-    <h1>Звёздные войны. Эпизод IV: Новая надежда</h1>
+    <h1>{{ title }}</h1>
     <img
       src="./assets/images//banner/IMDb.svg"
       alt="IMDb"
@@ -18,9 +18,10 @@
         (click)="buttonFavoritesToggle()"
       ></button>
       <button
-        [class]="buttonView"
-        (click)="buttonViewToggle()"
-      ></button>
+        class="{{ viewed }}">
+<!--        (click)="buttonViewToggle()"-->
+<!--      >-->
+      </button>
       <button
         [class]="buttonRate"
         (click)="buttonRateClick()"
@@ -35,13 +36,16 @@
   </div>
   <div>
     <div>
-      <span>Star Wars. Episode IV: A New Hope</span>
-      <span>1977, США, 2:30</span>
+      <span>{{ title }}</span>
+      <span>{{date.substring(0, date.length - 6)}}, USA, 2:30</span>
     </div>
-    <img
-      src="./assets/images/banner/rating.svg"
-      alt="rating"
-    >
+    <span>
+      Rating is {{ rating }} stars
+    </span>
+<!--    <img-->
+<!--      src="./assets/images/banner/rating.svg"-->
+<!--      alt="rating"-->
+<!--    >-->
   </div>
   <div>
     <ul>
@@ -52,3 +56,6 @@
     </ul>
   </div>
 </section>
+
+<app-description></app-description>
+<app-charasters></app-charasters>

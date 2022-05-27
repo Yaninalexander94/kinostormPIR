@@ -1,23 +1,94 @@
-
-<!--  <pre> {{ filmItem | json }} </pre>-->
-<!--  <pre> {{ films | json }} </pre>-->
-<!--  <span> {{ film[3].title }}</span>-->
-<!--  <span> {{ film[3].episode_id }}</span>-->
-<!--  <pre> {{ this.listFilms | json }}</pre>-->
-<!--&lt;!&ndash;  <script src="api.script.js"></script>&ndash;&gt;-->
-<!--  <div id="insertStyle">-->
-<!--&lt;!&ndash;  <ul style="display: grid;&ndash;&gt;-->
-<!--&lt;!&ndash;  grid-template-rows: repeat(5, 50px);" id="position">&ndash;&gt;-->
-<!--&lt;!&ndash;  </ul>&ndash;&gt;-->
-<!--  </div>-->
 <div>
-<!--  <pre> {{ this.listFilms | json }}</pre>-->
-  <ul
-    class="list"
-    [innerHTML]="publicList()"
+  <button
+    (click)="modalOpenToggle()"
+    class="button_settings"
   >
+  </button>
+  <div>
+
+    <button
+      class="button_delete"
+      *ngIf="deleteButton()"
+      (click)="deleteItem()"
+    >
+      <img src="assets/images/userList/api/trashbin.svg">
+      удалить выбранное
+    </button>
+  </div>
+  <ul class="list">
+    <li
+      class="listItem"
+      *ngFor="let item of listFilms"
+    >
+      <div
+        *ngIf="filterList(item.viewed)"
+      >
+        <label>
+          <input
+            class="check__input"
+            type="checkbox"
+            (checked)=item.checked
+            (click)="checkboxToggle(item.id)"
+          >
+          <div class="checkbox"></div>
+        </label>
+        <a
+          routerLink="/about-film"
+          [queryParams]="{
+          'title' : 'Star Wars. Episode ' + item.episode_id + ': ' + item.title ,
+          'viewed' : (item.viewed===true)?'banner__button_view_off':'banner__button_view_on',
+          'date': item.release_date,
+          'rating': item.rating,
+          'banner': item.id
+          }"
+        >
+          <span
+            class="listItem_title"
+          >Star Wars. Episode {{ item.episode_id }}: {{ item.title }}
+        </span>
+        </a>
+        <span>{{ item.release_date }}</span>
+        <button
+          [class]="this.getButtonView(item.viewed)"
+          onclick="this.className = (this.className === 'button_view_off' ? 'button_view_on' : 'button_view_off')"
+          (click)="this.buttonViewToggle(item.id)"
+        >
+        </button>
+        <button
+          class="button_rate"
+          onclick="if(this.className === 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 500);} else this.className='button_rate'"
+          (click)="ratingSet(item.id)"
+          title="Press to add rating. Now rating is {{ item.rating }}"
+        >
+          <div
+          *ngIf="listFilms[item.id].rating===0;else ratingNotNull">
+            <img
+              src="./assets/images/banner/star.png"
+              alt="star"
+            >
+            Оценить
+          </div>
+          <ng-template #ratingNotNull>
+           {{ listFilms[item.id].rating }} stars
+          </ng-template>
+        </button>
+      </div>
+    </li>
   </ul>
-<!--  <input type="checkbox" checked>-->
-<!--  [innerHTML]="publicList()"-->
+  <app-modal
+    (onChangedFilterReset)="onChangedFilterReset($event)"
+    (onChangedFilterViewed)="onChangedFilterViewed($event)"
+    (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
+    [filter1]="filterviewed"
+    [filter2]="filternotviewed"
+    *ngIf="modalOpen"
+    class="modal_block"
+  >
+  </app-modal>
+  <rating-app
+    *ngIf="ratingOpen"
+    (onChangedRating)="onChangedRating($event)"
+  >
+  </rating-app>
 </div>
 
