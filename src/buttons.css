@@ -140,7 +140,7 @@
   letter-spacing: 0.15px;
   color: #28a396;
   position: absolute;
-  bottom: 360px;
+  top: -10px;
   width: 160px;
   height: 32px;
   display: flex;
