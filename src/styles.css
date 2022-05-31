@@ -1,5 +1,7 @@
+/** Импорт шрифтов **/
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/css?family=Arimo);
+@import 'buttons.css';
 html {
   box-sizing: border-box;
   background-color: #000000 !important;
@@ -10,7 +12,7 @@ html {
 *::after {
   box-sizing: inherit;
 }
-
+/** Общий стиль тела **/
 body {
   width: 1060px;
   min-height: 100vh;
@@ -20,19 +22,19 @@ body {
   font-family: 'Arimo';
   font-style: normal;
 }
-
+/** Общий стиль ссылок **/
 body a {
   text-decoration: none;
 }
-
+/** Общий стиль элементов списка **/
 body li {
   list-style-type: none;
 }
-
+/** Общий стиль списков **/
 body ul {
   display: flex;
 }
-
+/** Общий стиль заголовков h2 **/
 h2 {
   color: #8FD4C0;
   text-transform: uppercase;
@@ -40,7 +42,7 @@ h2 {
   font-size: 20px;
   line-height: 20px;
 }
-
+/** Общий стиль кнопок **/
 button {
   border-style: none;
   cursor: pointer;

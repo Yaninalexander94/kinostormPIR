@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { Routes, RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { BannerComponent } from './banner/banner.component';
 import { DescriptionComponent } from './description/description.component';
 import { CharastersComponent } from './charasters/charasters.component';
 import { UserListComponent } from './userList/userList.component';
-import { ModalComponent } from './userList/modal/modal.component';
+import { FilterComponent } from './userList/filter/filter.component';
 import { ApiComponent } from './userList/api/api.component';
 import { AboutFilmComponent } from './aboutFilm/aboutFilm.component';
-import {RatingComponent} from './userList/rating/rating.component';
+import { RatingComponent } from './userList/rating/rating.component';
 
-// определение маршрутов
+/** Определение маршрутов **/
 const appRoutes: Routes = [
   {path: 'film-list', component: UserListComponent},
   {path: 'about-film', component: AboutFilmComponent},
@@ -22,11 +19,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BannerComponent,
     DescriptionComponent,
     CharastersComponent,
     UserListComponent,
-    ModalComponent,
+    FilterComponent,
     ApiComponent,
     AboutFilmComponent,
     RatingComponent,

@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'api-app',
@@ -13,9 +12,8 @@ export class ApiComponent implements OnInit {
   public filternotviewed: boolean = true;
   public modalOpen: boolean = false;
   public ratingOpen: boolean = false;
-  public ratingValue: number = 0;
   public filmId: number = 0;
-
+  public buttonId: number = 0;
 
   onChangedFilterReset(increased: any) {
     if (increased == true) {
@@ -56,7 +54,7 @@ export class ApiComponent implements OnInit {
       .then(rowData => this.getList(rowData.results));
   }
 
-  public getList(results: any) {
+  public getList(results: any): void {
     let index = 0;
     this.listFilms = results.map(
       (item: {
@@ -75,10 +73,10 @@ export class ApiComponent implements OnInit {
   }
 
   public getButtonView(viewed: boolean): string {
-    if (viewed === true) {
-      return 'button_view_off';
+    if (viewed) {
+      return 'button-view-off';
     } else {
-      return 'button_view_on';
+      return 'button-view-on';
     }
   }
 
@@ -102,23 +100,6 @@ export class ApiComponent implements OnInit {
     }
   }
 
-  public buttonRateClick(id: number, rating: number): void {
-    console.log('rating', rating);
-    let length = this.listFilms.length;
-    for (let i = 0; i < length; i++) {
-      if (this.listFilms[i].id === id) {
-        this.listFilms[i].rating = rating;
-        // if (this.listFilms[i].rating < 5) {
-        //   this.listFilms[i].rating++;
-        // } else {
-        //   this.listFilms[i].rating = 0;
-        // }
-        console.log(this.listFilms);
-        break;
-      }
-    }
-  }
-
   public filterList(viewed: boolean): boolean {
     return (!viewed || this.filternotviewed) && (viewed || this.filterviewed);
   }
@@ -135,7 +116,7 @@ export class ApiComponent implements OnInit {
     return isDeleteButtonOn;
   }
 
-  public deleteItem() {
+  public deleteItem(): void {
     let length = this.listFilms.length;
     for (let i = 0; i < length; i++) {
       if (this.listFilms[i].checked) {
@@ -153,5 +134,6 @@ export class ApiComponent implements OnInit {
   public ratingSet(id: number): void {
     this.ratingOpen = !this.ratingOpen;
     this.filmId = id;
+    this.buttonId = id;
   }
 }

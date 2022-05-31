@@ -1,15 +1,12 @@
-<!--<div *ngIf="mainHTML">-->
-
-<!--</div>-->
-<!--<div *ngIf="userList">-->
-<!--  <app-userList></app-userList>-->
-<!--</div>-->
 <header class="header">
   <a routerLink="film-list">
-    <img src="./assets/images/nav/kinostormkonostorm.svg" alt="kinostorm_logo">
+    <img
+      src="./assets/images/nav/kinostormkonostorm.svg"
+      alt="kinostorm_logo"
+    >
   </a>
-  <nav class="header_nav">
-    <ul class="header_nav__list">
+  <nav>
+    <ul class="header__nav-list">
       <li>
         <a routerLink="about-film">Каталог</a>
       </li>
@@ -24,9 +21,15 @@
       </li>
     </ul>
   </nav>
-  <div>
-    <a href="# "><img src="./assets/images/nav/search.svg" alt="search"></a>
-    <a href="# "><img src="./assets/images/nav/user.svg" alt="user"></a>
+  <div class="header__login-search">
+    <a href="# "><img
+      src="./assets/images/nav/search.svg"
+      alt="search"
+    ></a>
+    <a href="# "><img
+      src="./assets/images/nav/user.svg"
+      alt="user"
+    ></a>
   </div>
 </header>
 <router-outlet></router-outlet>

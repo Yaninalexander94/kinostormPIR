@@ -1,17 +1,20 @@
+/** Общий стиль блока "О фильме" **/
 .description {
   padding: 30px 90px 50px 90px;
   display: flex;
   margin: 0 auto;
-  background-color: #191E23;
+  background-color: #191e23;
   justify-content: space-between;
 }
 
-.description span {
+/** Стиль описания **/
+.description__annotation {
+  width: 520px;
+}
+
+/** Шрифт описания **/
+.description__annotation span {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-}
-
-.description__annotation {
-  width: 520px;
 }

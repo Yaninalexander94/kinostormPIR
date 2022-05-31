@@ -1,17 +1,15 @@
-.modal {
+/** Общий стиль фильтра **/
+.filter {
   background: #191e23;
   position: absolute;
-  left: 925px;
-  top: 195px;
+  left: 775px;
+  top: -30px;
   transform: translate(-50%, 0);
   box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 50%);
-  /*position: relative;*/
-  /*left: 770px;*/
-  /*bottom: 415px;*/
-  /*width: 240px;*/
 }
 
-.modal ul {
+/** Стиль списка фильтров **/
+.filter ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,12 +20,14 @@
   cursor: pointer;
 }
 
-.modal_item {
+/** Отображение элемента фильтра **/
+.filter_item {
   display: flex;
   justify-content: flex-start;
 }
 
-.modal_item>img {
+/** Положение галочки выбранного фильтра **/
+.filter_item > img {
   position: absolute;
   right: 200px;
 }

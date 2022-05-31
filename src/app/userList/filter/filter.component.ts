@@ -1,16 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.css'],
 })
-export class ModalComponent {
+export class FilterComponent {
+  @Input() viewedFilter: boolean = false;
+  @Input() notViewedFilter: boolean = false;
+
   public filterReset: boolean = false;
   public filterViewed: boolean = false;
   public filterNotViewed: boolean = false;
-
-  @Output() onChangedFilterReset = new EventEmitter<boolean>();
 
   setFilterReset() {
     this.onChangedFilterReset.emit(this.filterReset = true);
@@ -28,6 +29,5 @@ export class ModalComponent {
     this.onChangedFilterNotViewed.emit(this.filterNotViewed = true);
   }
 
-  @Input() filter1: boolean = false;
-  @Input() filter2: boolean = false;
+  @Output() onChangedFilterReset = new EventEmitter<boolean>();
 }

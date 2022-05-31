@@ -1,7 +1,7 @@
-<div>
+<div class="films">
   <button
     (click)="modalOpenToggle()"
-    class="button_settings"
+    class="button-settings"
   >
   </button>
   <div>
@@ -15,9 +15,9 @@
       удалить выбранное
     </button>
   </div>
-  <ul class="list">
+  <ul class="films__list">
     <li
-      class="listItem"
+      class="films__list__item"
       *ngFor="let item of listFilms"
     >
       <div
@@ -36,32 +36,33 @@
           routerLink="/about-film"
           [queryParams]="{
           'title' : 'Star Wars. Episode ' + item.episode_id + ': ' + item.title ,
-          'viewed' : (item.viewed===true)?'banner__button_view_off':'banner__button_view_on',
+          'viewed' : item.viewed?'button-view-off':'button-view-on',
           'date': item.release_date,
           'rating': item.rating,
           'banner': item.id
           }"
         >
           <span
-            class="listItem_title"
+            class="films__list__item-title"
           >Star Wars. Episode {{ item.episode_id }}: {{ item.title }}
         </span>
         </a>
         <span>{{ item.release_date }}</span>
         <button
           [class]="this.getButtonView(item.viewed)"
-          onclick="this.className = (this.className === 'button_view_off' ? 'button_view_on' : 'button_view_off')"
+          onclick="this.className = (this.className === 'button-view-off' ? 'button-view-on' : 'button-view-off')"
           (click)="this.buttonViewToggle(item.id)"
         >
         </button>
         <button
-          class="button_rate"
-          onclick="if(this.className === 'button_rate') {this.className = 'button_rate_click'; setTimeout(() => {this.className = 'button_rate';}, 500);} else this.className='button_rate'"
+          class="button-rate"
+          onclick="if(this.className === 'button-rate') {this.className = 'button-rate-click'; setTimeout(() => {this.className = 'button-rate';}, 100);} else this.className='button-rate'"
           (click)="ratingSet(item.id)"
           title="Press to add rating. Now rating is {{ item.rating }}"
         >
           <div
-          *ngIf="listFilms[item.id].rating===0;else ratingNotNull">
+            *ngIf="listFilms[item.id].rating===0;else ratingNotNull"
+          >
             <img
               src="./assets/images/banner/star.png"
               alt="star"
@@ -69,26 +70,26 @@
             Оценить
           </div>
           <ng-template #ratingNotNull>
-           {{ listFilms[item.id].rating }} stars
+            {{ listFilms[item.id].rating }} stars
           </ng-template>
+          <rating-app
+            *ngIf="ratingOpen&&item.id==buttonId"
+            (onChangedRating)="onChangedRating($event);ratingOpen=!ratingOpen"
+          >
+          </rating-app>
         </button>
       </div>
     </li>
   </ul>
-  <app-modal
+  <app-filter
     (onChangedFilterReset)="onChangedFilterReset($event)"
     (onChangedFilterViewed)="onChangedFilterViewed($event)"
     (onChangedFilterNotViewed)="onChangedFilterNotViewed($event)"
-    [filter1]="filterviewed"
-    [filter2]="filternotviewed"
+    [viewedFilter]="filterviewed"
+    [notViewedFilter]="filternotviewed"
     *ngIf="modalOpen"
     class="modal_block"
   >
-  </app-modal>
-  <rating-app
-    *ngIf="ratingOpen"
-    (onChangedRating)="onChangedRating($event)"
-  >
-  </rating-app>
+  </app-filter>
 </div>
 

@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'rating-app',
@@ -9,7 +8,8 @@ import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@ang
 
 export class RatingComponent {
   @Output() onChangedRating = new EventEmitter<number>();
-  setRating(rating: number){
+
+  setRating(rating: number) {
     this.onChangedRating.emit(rating);
   }
 }

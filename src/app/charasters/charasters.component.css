@@ -1,7 +1,10 @@
+/*@import 'src/app/buttons.css';*/
+/** Общий стиль блока "Персонажи" **/
 .charasters {
   padding: 0px 90px;
 }
 
+/** Стиль списка персонажей **/
 .charasters ul {
   display: grid;
   padding: 0;
@@ -10,22 +13,24 @@
   grid-template-rows: repeat(2, 100px);
 }
 
+/** Заголовок блока **/
 .charasters h2 {
   margin-top: 30px;
   margin-bottom: 0;
 }
 
-.charasters ul>li {
+/** Стиль элементов списка **/
+.charasters ul > li {
   height: 70px;
   display: flex;
   align-items: center;
   width: 220px;
-  height: 70px;
 }
 
-.charasters ul>li>span {
+/** Стиль шрифта элементов списка **/
+.charasters ul > li > span {
   margin-left: 20px;
-  color: #D6D2CF;
+  color: #d6d2cf;
   font-family: 'Arimo';
   font-style: normal;
   font-weight: 400;
@@ -33,40 +38,7 @@
   line-height: 20px;
 }
 
-.charasters>div {
+/** Отображение элементов списка **/
+.charasters > div {
   display: flex;
-}
-
-.charasters__button_more {
-  margin-top: 36px;
-  height: 70px;
-  width: 70px;
-  background-color: #384149;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #CFCAC7;
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 30px;
-  border-radius: 3px;
-}
-
-.charasters__button_more_click {
-  margin-top: 36px;
-  height: 70px;
-  width: 70px;
-  background-color: #28A396;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #CFCAC7;
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 30px;
-  border-radius: 3px;
 }

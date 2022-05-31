@@ -6,15 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./charasters.component.css'],
 })
 export class CharastersComponent {
-  buttonTimeout = 150;
-  buttonMore = 'charasters__button_more';
+  buttonTimeout: number = 150;
+  buttonMoreClass: string = 'button_more';
 
   public buttonMoreClick(): string {
-    this.buttonMore = 'charasters__button_more_click';
+    this.buttonMoreClass = 'button_more_click';
     console.log('Button More is clicked!');
     setTimeout(() => {
-      this.buttonMore = 'charasters__button_more';
+      this.buttonMoreClass = 'button_more';
     }, this.buttonTimeout);
-    return this.buttonMore;
+    return this.buttonMoreClass;
   }
 }

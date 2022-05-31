@@ -1,0 +1,36 @@
+<div
+  class="filter"
+>
+  <ul>
+    <li
+      class="filter_item"
+      (click)="setFilterReset()"
+    >
+      <img
+        *ngIf="(viewedFilter==true)&&(notViewedFilter==true)"
+        src="assets/images/userList/modal/checked.svg"
+      >
+      Все фильмы
+    </li>
+    <li
+      class="filter_item"
+      (click)="setFilterViewed();"
+    >
+      <img
+        *ngIf="(viewedFilter==true)&&(notViewedFilter==false)"
+        src="assets/images/userList/modal/checked.svg"
+      >
+      Просмотренные
+    </li>
+    <li
+      class="filter_item"
+      (click)="setFilterNotViewed()"
+    >
+      <img
+        *ngIf="(viewedFilter==false)&&(notViewedFilter==true)"
+        src="assets/images/userList/modal/checked.svg"
+      >
+      Непросмотренные
+    </li>
+  </ul>
+</div>

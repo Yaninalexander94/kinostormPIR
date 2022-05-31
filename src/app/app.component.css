@@ -1,3 +1,4 @@
+/** Общий стиль хедера **/
 .header {
   padding: 0px 90px 0px 90px;
   margin: 0px auto;
@@ -7,40 +8,36 @@
   background: #161617;
 }
 
-.header_nav {
+/** Стиль меню навигации **/
+.header__nav-list {
+  width: 520px;
   height: 70px;
-  display: flex;
   justify-content: space-between;
-}
-
-.header_nav>ul {
+  padding-inline-start: 0px;
   margin: 0;
   align-items: center;
 }
 
-.header_nav>ul>li>a {
+/** Стиль отображения ссылок **/
+.header__nav-list > li > a {
   font-weight: 700;
   font-size: 13px;
   line-height: 30px;
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: #D6D2CF;
+  color: #d6d2cf;
 }
 
-.header_nav a:hover {
-  color: #28A396;
+/** Стиль ссылок при наведении **/
+.header__nav-list > li > a:hover {
+  color: #28a396;
   border-bottom-style: solid;
   border-bottom-width: 2px;
 }
 
-.header_nav__list {
-  width: 520px;
-  justify-content: space-between;
-  padding-inline-start: 0px;
-}
-
-.header>div {
+/** Стиль для панели поиска и логина **/
+.header__login-search {
   display: flex;
   width: 90px;
   justify-content: space-between;

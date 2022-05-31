@@ -1,4 +1,4 @@
-<section class="banner banner{{banner}}">
+<section class="banner banner-background-{{banner}}">
   <div>
     <h1>{{ title }}</h1>
     <img
@@ -8,22 +8,22 @@
   </div>
   <div>
     <button
-      [class]="buttonWatch"
+      [class]="buttonWatchClass"
       (click)="buttonWatchClick()"
     >Cмотреть от 99 Р
     </button>
-    <div class="banner__buttons">
+    <div class="sub-buttons">
       <button
-        [class]="buttonFavorites"
+        [class]="buttonFavoritesClass"
         (click)="buttonFavoritesToggle()"
       ></button>
       <button
-        class="{{ viewed }}">
-<!--        (click)="buttonViewToggle()"-->
-<!--      >-->
+        class="{{ viewed }}"
+        (click)="buttonViewToggle()"
+      >
       </button>
       <button
-        [class]="buttonRate"
+        [class]="buttonRateClass"
         (click)="buttonRateClick()"
       >
         <img
@@ -42,10 +42,6 @@
     <span>
       Rating is {{ rating }} stars
     </span>
-<!--    <img-->
-<!--      src="./assets/images/banner/rating.svg"-->
-<!--      alt="rating"-->
-<!--    >-->
   </div>
   <div>
     <ul>
@@ -56,6 +52,5 @@
     </ul>
   </div>
 </section>
-
 <app-description></app-description>
 <app-charasters></app-charasters>

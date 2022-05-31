@@ -1,37 +1,37 @@
-.list {
+/*@import 'src/app/buttons.css';*/
+/** Общий стиль блока списка фильмов **/
+.films {
+  position: relative;
+}
+
+/** Общий стиль списка **/
+.films__list {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
   margin: 0;
 }
-a{
+
+/** Стиль ссылок на фильмы **/
+a {
   color: white;
 }
-.listItem>div {
+
+/** Сетка строки фильма **/
+.films__list__item > div {
   display: grid;
   grid-template-columns:35px 590px 100px 45px 100px;
   height: 50px;
   align-items: center;
 }
-.listItem_title{
+
+/** Заголовок элемента списка **/
+.films__list__item-title {
   text-decoration: underline 2px;
   cursor: pointer;
 }
 
-.button_view_off {
-  background: #23292E url(src/assets/images/banner/view.svg) no-repeat center;
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-}
-
-.button_view_on {
-  background: #28a396 url(src/assets/images/banner/view.svg) no-repeat center;
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-}
-
+/** Стиль инпута чекбокса **/
 .check__input {
   position: absolute;
   -webkit-appearance: none;
@@ -39,9 +39,8 @@ a{
   appearance: none;
 }
 
-.checkbox{
-  /*position: absolute;*/
-  /*left: 95px;*/
+/** Стиль чекбокса **/
+.checkbox {
   background: bottom;
   border-color: rgba(255, 255, 255, 0.6);
   height: 18px;
@@ -52,62 +51,8 @@ a{
   cursor: pointer;
 }
 
-.check__input:checked + .checkbox{
+/** Стиль выбранного чекбокса **/
+.check__input:checked + .checkbox {
   background: url('src/assets/images/userList/api/checkbox.svg');
   border: none;
-}
-
-.button_rate {
-  background: #23292E;
-  border-radius: 5px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: #FFFFFF;
-  width: 102px;
-  height: 36px;
-}
-
-.button_rate_click {
-  background: #28A396;
-  border-radius: 5px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: #FFFFFF;
-  width: 102px;
-  height: 36px;
-}
-
-.button_delete{
-  font-family: 'Arimo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 24px;
-  background: #23292E;
-  border-radius: 5px;
-  letter-spacing: 0.15px;
-  color: #28A396;
-  position: absolute;
-  top: 220px;
-  width: 160px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_delete>img{
-  margin-right: 10px;
-}
-
-.button_settings{
-  background: url(src/assets/images/userList/settings.svg) no-repeat center;
-  width: 24px;
-  height: 24px;
-  position: relative;
-  left: 865px;
-  bottom: 65px;
 }
